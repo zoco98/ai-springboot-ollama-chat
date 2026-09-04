@@ -1,0 +1,5 @@
+- Java 17 Spring Boot project for CSV processing
+- Uses OpenCSV for reading/writing CSV files
+- Entry point: CsvProcessorApplication.java
+- Run with: mvn spring-boot:run
+- API runs on port 8080
