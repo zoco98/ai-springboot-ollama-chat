@@ -17,13 +17,13 @@ public class LoggingAspect {
 	private static Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 	HashMap<String, Long> timeTaken = new HashMap<>();
 	
-	@Before("execution(* com.csvprocessor.controller.ChatController..*(..))")
+	@Before("execution(* com.csvprocessor.controller..*(..))")
 	public void beforeController(JoinPoint joinPoint) {
 		timeTaken.put("StartTime", System.currentTimeMillis());
 		logger.info("Before: " + joinPoint.getSignature().toShortString());
 	}
 
-	@After("execution(* com.csvprocessor.controller.ChatController..*(..))")
+	@After("execution(* com.csvprocessor.controller..*(..))")
 	public void afterController(JoinPoint joinPoint) {
 		timeTaken.put("EndTime", System.currentTimeMillis());
 		logger.info("API execution time: {}", timeTaken.get("EndTime")-timeTaken.get("StartTime"));
